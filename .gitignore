@@ -2,5 +2,6 @@
 composer.lock
 vendor
 tests/_output
+tests/_run/*
 
 /.idea/

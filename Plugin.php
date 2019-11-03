@@ -1,4 +1,5 @@
 <?php
+
 namespace Sfp\Psalm\PsrLogPlugin;
 
 use SimpleXMLElement;

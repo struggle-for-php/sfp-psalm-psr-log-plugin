@@ -1,4 +1,5 @@
 <?php
+
 namespace SfpTest\Psalm\PsrLogPlugin;
 
 use Behat\Gherkin\Node\TableNode;

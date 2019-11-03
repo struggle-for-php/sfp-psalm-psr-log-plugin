@@ -1,6 +1,7 @@
 {
     "name": "struggle-for-php/sfp-psalm-psr-log-plugin",
-    "description": "Psr Log (psr-3)",
+    "description": "Stubs to let Psalm understand psr/log (PSR-3) strictly",
+    "keywords": ["psalm", "psalm-plugin", "static analysis", "static-analysis", "psr3"],
     "type": "psalm-plugin",
     "license": "MIT",
     "authors": [

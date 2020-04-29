@@ -17,7 +17,7 @@ $ vendor/bin/psalm-plugin enable struggle-for-php/sfp-psalm-psr-log-plugin
 
 use Psr\Log\LoggerInterface;
 
-class Foo
+class FooController
 {
     /** @var LoggerInterface */
     private $logger;
@@ -25,8 +25,9 @@ class Foo
     public function anyAction()
     {
         try {
+            // do something
         } catch (\Exception $e) {
-            $this->logger->error('error happend.', ['exception' => $e->getMessage()]);
+            $this->logger->error('error happened.', ['exception' => $e->getMessage()]);
         }
     }
 }
@@ -35,5 +36,17 @@ class Foo
 would be ERROR output:
 ```php
 ERROR: InvalidArgument - src/Foo.php:14:45 - Argument 2 of Psr\Log\LoggerInterface::error expects array{exception?: Exception}, array{exception: string} provided
-            $this->logger->error('error happend.', ['exception' => $e->getMessage()]);
+            $this->logger->error('error happened.', ['exception' => $e->getMessage()]);
+```
+
+## Configure
+
+If you want to allow `Throwable` to pass logger context's `exception`.
+
+```xml
+        <plugins>
+          <pluginClass class="Sfp\Psalm\PsrLogPlugin\Plugin">
+            <throwable>1</throwable>
+          </pluginClass>
+        </plugins>
 ```

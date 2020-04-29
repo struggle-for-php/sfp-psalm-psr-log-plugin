@@ -3,20 +3,19 @@
 namespace Psr\Log;
 
 /**
- * This is a simple Logger trait that classes unable to extend AbstractLogger
- * (because they extend another class, etc) can include.
+ * This is a simple Logger implementation that other Loggers can inherit from.
  *
  * It simply delegates all log-level-specific methods to the `log` method to
  * reduce boilerplate code that a simple Logger that does the same thing with
  * messages regardless of the error level has to implement.
  */
-trait LoggerTrait
+abstract class AbstractLogger implements LoggerInterface
 {
     /**
      * System is unusable.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -32,7 +31,7 @@ trait LoggerTrait
      * trigger the SMS alerts and wake you up.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -47,7 +46,7 @@ trait LoggerTrait
      * Example: Application component unavailable, unexpected exception.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -61,7 +60,7 @@ trait LoggerTrait
      * be logged and monitored.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -77,7 +76,7 @@ trait LoggerTrait
      * that are not necessarily wrong.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -90,7 +89,7 @@ trait LoggerTrait
      * Normal but significant events.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -105,7 +104,7 @@ trait LoggerTrait
      * Example: User logs in, SQL logs.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -118,7 +117,7 @@ trait LoggerTrait
      * Detailed debug information.
      *
      * @param string $message
-     * @param array{exception?: \Exception}  $context
+     * @param array{exception?: \Throwable}  $context
      *
      * @return void
      */
@@ -126,17 +125,4 @@ trait LoggerTrait
     {
         $this->log(LogLevel::DEBUG, $message, $context);
     }
-
-    /**
-     * Logs with an arbitrary level.
-     *
-     * @param mixed  $level
-     * @param string $message
-     * @param array{exception?: \Exception}  $context
-     *
-     * @return void
-     *
-     * @throws \Psr\Log\InvalidArgumentException
-     */
-    abstract public function log($level, $message, array $context = array());
 }

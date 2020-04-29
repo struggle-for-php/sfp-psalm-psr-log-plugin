@@ -1,4 +1,4 @@
-Feature: Logger
+Feature: Exception
 
   Background:
     Given I have the following config
@@ -19,7 +19,6 @@ Feature: Logger
       <?php
       use Psr\Log\LoggerInterface;
       use Psr\Log\AbstractLogger;
-      use Psr\Log\LoggerTrait;
 
       /**
        * @psalm-suppress InvalidReturnType
@@ -46,6 +45,14 @@ Feature: Logger
       impl_interface()->notice("message", ['exception' => 'foo']);
       impl_interface()->info("message", ['exception' => 'foo']);
       impl_interface()->debug("message", ['exception' => 'foo']);
+      impl_interface()->emergency("message", ['exception' => new Error]);
+      impl_interface()->alert("message", ['exception' => new Error]);
+      impl_interface()->critical("message", ['exception' => new Error]);
+      impl_interface()->error("message", ['exception' => new Error]);
+      impl_interface()->warning("message", ['exception' => new Error]);
+      impl_interface()->notice("message", ['exception' => new Error]);
+      impl_interface()->info("message", ['exception' => new Error]);
+      impl_interface()->debug("message", ['exception' => new Error]);
       """
     When I run Psalm
     Then I see these errors
@@ -58,6 +65,14 @@ Feature: Logger
       | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::notice expects array{exception?: Exception}, array{exception: string(foo)} provided |
       | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::info expects array{exception?: Exception}, array{exception: string(foo)} provided |
       | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::debug expects array{exception?: Exception}, array{exception: string(foo)} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::emergency expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::alert expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::critical expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::error expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::warning expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::notice expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::info expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::debug expects array{exception?: Exception}, array{exception: Error} provided |
     And I see no other errors
 
   Scenario: `exception` key is actually an Exception Object AS per AbstractLogger
@@ -71,6 +86,14 @@ Feature: Logger
       concrete_abstract()->notice("message", ['exception' => 'foo']);
       concrete_abstract()->info("message", ['exception' => 'foo']);
       concrete_abstract()->debug("message", ['exception' => 'foo']);
+      concrete_abstract()->emergency("message", ['exception' => new Error]);
+      concrete_abstract()->alert("message", ['exception' => new Error]);
+      concrete_abstract()->critical("message", ['exception' => new Error]);
+      concrete_abstract()->error("message", ['exception' => new Error]);
+      concrete_abstract()->warning("message", ['exception' => new Error]);
+      concrete_abstract()->notice("message", ['exception' => new Error]);
+      concrete_abstract()->info("message", ['exception' => new Error]);
+      concrete_abstract()->debug("message", ['exception' => new Error]);
       """
     When I run Psalm
     Then I see these errors
@@ -83,4 +106,12 @@ Feature: Logger
       | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::notice expects array{exception?: Exception}, array{exception: string(foo)} provided |
       | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::info expects array{exception?: Exception}, array{exception: string(foo)} provided |
       | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::debug expects array{exception?: Exception}, array{exception: string(foo)} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::emergency expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::alert expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::critical expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::error expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::warning expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::notice expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::info expects array{exception?: Exception}, array{exception: Error} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::debug expects array{exception?: Exception}, array{exception: Error} provided |
     And I see no other errors

@@ -8,8 +8,7 @@ use Psalm\Plugin\RegistrationInterface;
 
 class Plugin implements PluginEntryPointInterface
 {
-    /** @return void */
-    public function __invoke(RegistrationInterface $psalm, ?SimpleXMLElement $config = null)
+    public function __invoke(RegistrationInterface $psalm, SimpleXMLElement $config = null) : void
     {
         if (isset($config->throwable) && ((bool)$config->throwable === true)) {
             $psalm->addStubFile(__DIR__ . '/throwable-stubs/LoggerInterface.php');

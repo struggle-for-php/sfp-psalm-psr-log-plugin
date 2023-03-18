@@ -2,10 +2,6 @@
 
 namespace SfpTest\Psalm\PsrLogPlugin;
 
-use Behat\Gherkin\Node\TableNode;
-use Codeception\Exception\TestRuntimeException;
-use PHPUnit\Framework\Assert;
-
 /**
  * Inherited Methods
  * @method void wantToTest($text)

@@ -5,10 +5,7 @@ Feature: Exception
       """
       <?xml version="1.0"?>
       <psalm>
-        <projectFiles>
-          <directory name="."/>
-          <ignoreFiles> <directory name="../../vendor"/> </ignoreFiles>
-        </projectFiles>
+        <projectFiles><directory name="."/></projectFiles>
         <plugins>
           <pluginClass class="Sfp\Psalm\PsrLogPlugin\Plugin"/>
         </plugins>

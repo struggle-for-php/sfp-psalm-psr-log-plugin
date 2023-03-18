@@ -57,14 +57,14 @@ Feature: Exception
     When I run Psalm
     Then I see these errors
       | Type            | Message                                                                                                                      |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::emergency expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::alert expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::critical expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::error expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::warning expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::notice expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::info expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::debug expects array{exception?: Exception}, but array{exception: "foo"} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::emergency expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::alert expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::critical expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::error expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::warning expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::notice expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::info expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::debug expects array{exception?: Exception}, but array{exception: 'foo'} provided |
       | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::emergency expects array{exception?: Exception}, but array{exception: Error} provided |
       | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::alert expects array{exception?: Exception}, but array{exception: Error} provided |
       | InvalidArgument | Argument 2 of Psr\Log\LoggerInterface::critical expects array{exception?: Exception}, but array{exception: Error} provided |
@@ -98,14 +98,14 @@ Feature: Exception
     When I run Psalm
     Then I see these errors
       | Type            | Message                                                                                                                      |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::emergency expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::alert expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::critical expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::error expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::warning expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::notice expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::info expects array{exception?: Exception}, but array{exception: "foo"} provided |
-      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::debug expects array{exception?: Exception}, but array{exception: "foo"} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::emergency expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::alert expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::critical expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::error expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::warning expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::notice expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::info expects array{exception?: Exception}, but array{exception: 'foo'} provided |
+      | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::debug expects array{exception?: Exception}, but array{exception: 'foo'} provided |
       | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::emergency expects array{exception?: Exception}, but array{exception: Error} provided |
       | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::alert expects array{exception?: Exception}, but array{exception: Error} provided |
       | InvalidArgument | Argument 2 of Psr\Log\AbstractLogger::critical expects array{exception?: Exception}, but array{exception: Error} provided |
